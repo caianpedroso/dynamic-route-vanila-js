@@ -37,10 +37,15 @@
 
         fetch(route)
           .then(data => data.text())
-          .then(html => console.log(html))
+          .then(html => {
+            document.querySelector('#app').innerHTML = html
+          })
 
         console.log(pathname)
       }
+      handle()
+
+      window.onpopstate = () => handle()
     </script>
 </body>
 </html>
